@@ -14,6 +14,6 @@ variable "initial_node_count" {
 }
 
 variable "project" {
-    type = bool
+    type = string
     description = "(optional) describe your variable"
 }
