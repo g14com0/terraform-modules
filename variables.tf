@@ -9,11 +9,11 @@ variable "location" {
 }
 
 variable "initial_node_count" {
-    type = string
+    type = number
     description = "(optional) describe your variable"
 }
 
 variable "project" {
-    type = string
+    type = bool
     description = "(optional) describe your variable"
 }
