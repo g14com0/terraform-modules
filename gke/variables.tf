@@ -16,6 +16,7 @@ variable "project" {
 variable "regions" {
   type        = string
   description = "(optional) describe your variable"
+  default = null
 }
 
 variable "remove_default_node_pool" {
@@ -31,4 +32,5 @@ variable "zonal" {
 variable "zone" {
   type        = list(string)
   description = "(optional) describe your variable"
+  default = []
 }
