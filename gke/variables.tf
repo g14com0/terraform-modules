@@ -1,36 +1,43 @@
 variable "name" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "The name of the cluster"
 }
 
 variable "initial_node_count" {
   type        = number
-  description = "(optional) describe your variable"
+  description = "The number of nodes to create in this cluster's default node pool"
+  default = 0
 }
 
 variable "project" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "The ID of the project in which the resource belongs"
 }
 
 variable "regions" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "The region to host the cluster"
   default = null
+}
+
+variable "release_channel" {
+  type = string
+  description = "(optional) describe your variable"
+  default = "UNSPECIFIED"
 }
 
 variable "remove_default_node_pool" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "Remove the default node pool upon cluster creation"
 }
 
 variable "zonal" {
   type        = bool
-  description = "(optional) describe your variable"
+  description = "Whether is a zonal cluster"
 }
 
 variable "zone" {
   type        = list(string)
-  description = "(optional) describe your variable"
+  description = "The zones to host the cluster"
   default = []
 }
