@@ -10,9 +10,9 @@ variable "initial_node_count" {
 }
 
 variable "node_pools_name" {
-  type = set(string)
+  type        = set(string)
   description = "(optional) describe your variable"
-  default = [ "value" ]
+  default     = ["value"]
 }
 
 variable "project" {
@@ -49,15 +49,15 @@ variable "zone" {
 }
 
 variable "node_count" {
-  type = number
+  type        = number
   description = "(optional) describe your variable"
-  default = 1
+  default     = 1
 }
 
 variable "gke_version" {
-  type = string
+  type        = string
   description = "(optional) describe your variable"
-  default = null
+  default     = null
 }
 
 variable "min_node_count" {
