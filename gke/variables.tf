@@ -3,12 +3,6 @@ variable "name" {
   description = "The name of the cluster"
 }
 
-variable "initial_node_count" {
-  type        = number
-  description = "The number of nodes to create in this cluster's default node pool"
-  default     = 0
-}
-
 variable "node_pools_name" {
   type        = set(string)
   description = "(optional) describe your variable"
