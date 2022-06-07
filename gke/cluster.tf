@@ -20,21 +20,11 @@ resource "google_container_cluster" "primary" {
       machine_type     = lookup(var.node_pools[0], "machine_type", "e2-medium")
     }
 
-    autoscaling {
-      min_node_count = var.min_node_count
-      max_node_count = var.max_node_count
-    }
 
     management {
-      auto_upgrade = var.auto_upgrade
-      auto_repair  = var.auto_repair
+      auto_upgrade = lookup(each.value, "auto_upgrade", false)
+      auto_repair  = lookup(each.value, "auto_repair", false)
     }
-
-    upgrade_settings {
-      max_surge       = var.max_surge
-      max_unavailable = var.max_unavailable
-    }
-
 
   }
 }
