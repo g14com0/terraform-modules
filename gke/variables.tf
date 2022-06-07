@@ -31,6 +31,18 @@ variable "remove_default_node_pool" {
   description = "Remove the default node pool upon cluster creation"
 }
 
+variable "network" {
+  type = string
+  description = "(optional) describe your variable"
+  default = ""
+}
+
+variable "subnetwork" {
+  type = string
+  description = "(optional) describe your variable"
+  default = ""
+}
+
 variable "zonal" {
   type        = bool
   description = "Whether is a zonal cluster"

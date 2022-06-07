@@ -4,6 +4,9 @@ resource "google_container_cluster" "primary" {
   location       = local.location
   node_locations = local.node_location
 
+  network = var.network
+  subnet = var.subnetwork
+
   name                     = var.name
   remove_default_node_pool = var.remove_default_node_pool
 
@@ -18,13 +21,6 @@ resource "google_container_cluster" "primary" {
     node_config {
       image_type       = lookup(var.node_pools[0], "image_type", "COS_CONTAINERD")
       machine_type     = lookup(var.node_pools[0], "machine_type", "e2-medium")
-      disk_type        = lookup(var.node_pools[0], "disk_type", "pd-standard")
-      disk_size_gb     = lookup(var.node_pools[0], "disk_size_gb", "100")
-      local_ssd_count  = lookup(var.node_pools[0], "local_ssd_count", "0")
-      min_cpu_platform = lookup(var.node_pools[0], "min_cpu_platform", "")
-      metadata = {
-        "disable-legacy-endpoints" = "true"
-      }
     }
 
     management {
