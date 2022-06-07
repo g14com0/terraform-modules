@@ -34,6 +34,10 @@ resource "google_container_cluster" "primary" {
       image_type   = var.image_type
       machine_type = var.machine_type
     }
+    
+    metadata {
+     disable-legacy-endpoints = true
+    }
   }
 }
 
