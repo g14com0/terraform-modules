@@ -6,7 +6,7 @@ variable "name" {
 variable "node_pools_name" {
   type        = set(string)
   description = "(optional) describe your variable"
-  default     = ["value"]
+  default     = []
 }
 
 variable "project" {
@@ -100,4 +100,10 @@ variable "machine_type" {
   type        = string
   description = "(optional) describe your variable"
   default     = "e2-micro"
+}
+
+variable "initial_node_count" {
+  type = number
+  description = "(optional) describe your variable"
+  default = 1
 }

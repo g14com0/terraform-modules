@@ -13,6 +13,27 @@ resource "google_container_cluster" "primary" {
 
   node_pool {
     name = "default-pool"
+    initial_node_count = var.initial_node_count
+    version    = var.gke_version
+
+    autoscaling {
+      min_node_count = var.min_node_count
+      max_node_count = var.max_node_count
+    }
+
+    management {
+      auto_upgrade = var.auto_upgrade
+    }
+
+    upgrade_settings {
+      max_surge       = var.max_surge
+      max_unavailable = var.max_unavailable
+    }
+
+    node_config {
+      image_type   = var.image_type
+      machine_type = var.machine_type
+    }
   }
 }
 
