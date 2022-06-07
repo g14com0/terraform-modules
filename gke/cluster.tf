@@ -12,9 +12,9 @@ resource "google_container_cluster" "primary" {
   }
 
   node_pool {
-    name = "default-pool"
+    name               = "default-pool"
     initial_node_count = var.initial_node_count
-    version    = var.gke_version
+    version            = var.gke_version
 
     autoscaling {
       min_node_count = var.min_node_count

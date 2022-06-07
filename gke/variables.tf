@@ -103,7 +103,7 @@ variable "machine_type" {
 }
 
 variable "initial_node_count" {
-  type = number
+  type        = number
   description = "(optional) describe your variable"
-  default = 1
+  default     = 1
 }
