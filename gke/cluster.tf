@@ -22,8 +22,8 @@ resource "google_container_cluster" "primary" {
 
 
     management {
-      auto_upgrade = lookup(each.value, "auto_upgrade", false)
-      auto_repair  = lookup(each.value, "auto_repair", false)
+      auto_upgrade = lookup(var.node_pools[0], "auto_upgrade", false)
+      auto_repair  = lookup(var.node_pools[0], "auto_repair", false)
     }
 
   }
