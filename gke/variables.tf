@@ -42,12 +42,6 @@ variable "zone" {
   default     = []
 }
 
-variable "node_count" {
-  type        = number
-  description = "(optional) describe your variable"
-  default     = 1
-}
-
 variable "gke_version" {
   type        = string
   description = "(optional) describe your variable"
@@ -90,16 +84,15 @@ variable "max_unavailable" {
   default     = 0
 }
 
-variable "image_type" {
-  type        = string
-  description = "The default image type used by NAP once a new node pool is being created"
-  default     = "COS_CONTAINERD"
-}
+variable "node_pools" {
+  type        = list(map(string))
+  description = "List of maps containing node pools"
 
-variable "machine_type" {
-  type        = string
-  description = "(optional) describe your variable"
-  default     = "e2-micro"
+  default = [
+    {
+      name = "default-node-pool"
+    },
+  ]
 }
 
 variable "initial_node_count" {

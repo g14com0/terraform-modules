@@ -14,7 +14,11 @@ resource "google_container_cluster" "primary" {
   node_pool {
     name               = "default-pool"
     initial_node_count = var.initial_node_count
-    version            = var.gke_version
+
+    node_config {
+      image_type       = lookup(var.node_pools[0], "image_type", "COS_CONTAINERD")
+      machine_type     = lookup(var.node_pools[0], "machine_type", "e2-medium")
+    }
 
     autoscaling {
       min_node_count = var.min_node_count
@@ -23,6 +27,7 @@ resource "google_container_cluster" "primary" {
 
     management {
       auto_upgrade = var.auto_upgrade
+      auto_repair  = var.auto_repair
     }
 
     upgrade_settings {
@@ -30,40 +35,6 @@ resource "google_container_cluster" "primary" {
       max_unavailable = var.max_unavailable
     }
 
-    node_config {
-      image_type   = var.image_type
-      machine_type = var.machine_type
-    }
-  }
-}
 
-resource "google_container_node_pool" "node_pool" {
-  for_each       = local.node_pool_name
-  name           = each.value
-  location       = local.location
-  node_locations = local.node_location
-
-  cluster    = google_container_cluster.primary.name
-  node_count = var.node_count
-  version    = var.gke_version
-
-  autoscaling {
-    min_node_count = var.min_node_count
-    max_node_count = var.max_node_count
-  }
-
-  management {
-    auto_upgrade = var.auto_upgrade
-    auto_repair  = var.auto_repair
-  }
-
-  upgrade_settings {
-    max_surge       = var.max_surge
-    max_unavailable = var.max_unavailable
-  }
-
-  node_config {
-    image_type   = var.image_type
-    machine_type = var.machine_type
   }
 }
