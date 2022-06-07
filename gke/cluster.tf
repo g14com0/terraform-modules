@@ -4,8 +4,8 @@ resource "google_container_cluster" "primary" {
   location       = local.location
   node_locations = local.node_location
 
-  network = var.network
-  subnetwork  = var.subnetwork
+  network    = var.network
+  subnetwork = var.subnetwork
 
   name                     = var.name
   remove_default_node_pool = var.remove_default_node_pool
