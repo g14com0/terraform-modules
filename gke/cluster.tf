@@ -22,6 +22,9 @@ resource "google_container_cluster" "primary" {
       disk_size_gb     = lookup(var.node_pools[0], "disk_size_gb", "100")
       local_ssd_count  = lookup(var.node_pools[0], "local_ssd_count", "0")
       min_cpu_platform = lookup(var.node_pools[0], "min_cpu_platform", "")
+      metadata = {
+        "disable-legacy-endpoints" = "true"
+      }
     }
 
     management {
