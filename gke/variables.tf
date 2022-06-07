@@ -32,15 +32,15 @@ variable "remove_default_node_pool" {
 }
 
 variable "network" {
-  type = string
+  type        = string
   description = "(optional) describe your variable"
-  default = ""
+  default     = ""
 }
 
 variable "subnetwork" {
-  type = string
+  type        = string
   description = "(optional) describe your variable"
-  default = ""
+  default     = ""
 }
 
 variable "zonal" {

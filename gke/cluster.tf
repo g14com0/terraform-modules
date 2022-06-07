@@ -5,7 +5,7 @@ resource "google_container_cluster" "primary" {
   node_locations = local.node_location
 
   network = var.network
-  subnet = var.subnetwork
+  subnet  = var.subnetwork
 
   name                     = var.name
   remove_default_node_pool = var.remove_default_node_pool
@@ -19,8 +19,8 @@ resource "google_container_cluster" "primary" {
     initial_node_count = var.initial_node_count
 
     node_config {
-      image_type       = lookup(var.node_pools[0], "image_type", "COS_CONTAINERD")
-      machine_type     = lookup(var.node_pools[0], "machine_type", "e2-medium")
+      image_type   = lookup(var.node_pools[0], "image_type", "COS_CONTAINERD")
+      machine_type = lookup(var.node_pools[0], "machine_type", "e2-medium")
     }
 
     management {
