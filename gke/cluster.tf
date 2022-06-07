@@ -7,6 +7,16 @@ resource "google_container_cluster" "primary" {
   name                     = var.name
   remove_default_node_pool = var.remove_default_node_pool
 
+  ip_allocation_policy {}
+
+  private_cluster_config {
+    enable_private_nodes = true
+  }
+
+  network_policy {
+    enabled = true
+  }
+
   release_channel {
     channel = var.release_channel
   }
