@@ -50,7 +50,7 @@ variable "zonal" {
 
 variable "zone" {
   type        = list(string)
-  description = "The zones to host the cluster"
+  description = "The zones to host the cluster."
   default     = []
 }
 
