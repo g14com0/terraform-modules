@@ -22,7 +22,7 @@ variable "regions" {
 
 variable "release_channel" {
   type        = string
-  description = "(optional) describe your variable"
+  description = "(optional) describe your variable."
   default     = "UNSPECIFIED"
 }
 
