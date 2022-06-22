@@ -1,3 +1,4 @@
 resource "google_compute_address" "ip_address" {
-  name = var.name
+  name   = var.name
+  region = var.region
 }
