@@ -12,6 +12,6 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger gcfr-gke-cluster 
+      - name: "Trigger gcfr-gke-cluster"
         run: |
           curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/g14com0/kube-cluster/dispatches --data '{"event_type": "build_application"}'
